@@ -2,7 +2,6 @@ package io.swagger.modelDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 public class NiveauDTO {
 
 	@JsonProperty
@@ -11,13 +10,9 @@ public class NiveauDTO {
 	@JsonProperty
 	private int niveau;
 
-
 	private CompetenceDTO competence;
 
-
 	private CollaborateurDTO collaborateur;
-
-
 
 	public CompetenceDTO getCompetence() {
 		return competence;
@@ -45,22 +40,6 @@ public class NiveauDTO {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public CompetenceDTO getManufacturer() {
-		return competence;
-	}
-
-	public void setManufacturer(CompetenceDTO manufacturer) {
-		this.competence = manufacturer;
-	}
-
-	public CollaborateurDTO getModelType() {
-		return collaborateur;
-	}
-
-	public void setModelType(CollaborateurDTO modelType) {
-		this.collaborateur = modelType;
 	}
 
 	public Long getId() {

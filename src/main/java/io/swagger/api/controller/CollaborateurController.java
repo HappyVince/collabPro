@@ -20,14 +20,14 @@ import io.swagger.modelDTO.CollaborateurDTO;
 @RestController
 public class CollaborateurController {
 
-//	CollaborateurMapper mapper;
+	CollaborateurMapper mapper = Selma.builder(CollaborateurMapper.class).build();
 
 	@Autowired
 	CollaborateurRepository iCollaborateur;
 
 	@PostMapping("/collaborateur")
 	Collaborateur create(@RequestBody CollaborateurDTO collaborateurDTO) {
-		Collaborateur collaborateur = CollaborateurMapper.mapper.asCollaborateur(collaborateurDTO);
+		Collaborateur collaborateur = mapper.asCollaborateur(collaborateurDTO);
 		return iCollaborateur.save(collaborateur);
 	}
 

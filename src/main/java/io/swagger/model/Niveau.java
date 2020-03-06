@@ -15,10 +15,10 @@ public class Niveau {
 	private int niveau;
 
 	@ManyToOne
-	private Competence manufacturer;
+	private Competence competence;
 
 	@ManyToOne
-	private Collaborateur modelType;
+	private Collaborateur collaborateur;
 
 
 
@@ -34,20 +34,20 @@ public class Niveau {
 		this.id = id;
 	}
 
-	public Competence getManufacturer() {
-		return manufacturer;
+	public Competence getCompetence() {
+		return competence;
 	}
 
-	public void setManufacturer(Competence manufacturer) {
-		this.manufacturer = manufacturer;
+	public void setCompetence(Competence competence) {
+		this.competence = competence;
 	}
 
-	public Collaborateur getModelType() {
-		return modelType;
+	public Collaborateur getCollaborateur() {
+		return collaborateur;
 	}
 
-	public void setModelType(Collaborateur modelType) {
-		this.modelType = modelType;
+	public void setCollaborateur(Collaborateur collaborateur) {
+		this.collaborateur = collaborateur;
 	}
 
 	public Long getId() {

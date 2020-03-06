@@ -25,15 +25,18 @@ public class Competence {
 	private List<Niveau> niveaux = new ArrayList<Niveau>();
 
 	@ManyToOne
-	private Categorie headquarters;
+	private Categorie categorieParent;
 
 
-	public Categorie getHeadquarters() {
-		return headquarters;
+
+
+
+	public Categorie getCategorieParent() {
+		return categorieParent;
 	}
 
-	public void setHeadquarters(Categorie headquarters) {
-		this.headquarters = headquarters;
+	public void setCategorieParent(Categorie categorieParent) {
+		this.categorieParent = categorieParent;
 	}
 
 	public Long getId() {
