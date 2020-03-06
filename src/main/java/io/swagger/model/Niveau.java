@@ -1,160 +1,56 @@
 package io.swagger.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-/**
- * Niveau
- */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-02-27T13:33:09.875Z")
+@Entity
+public class Niveau {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 
-public class Niveau   {
-  @JsonProperty("id")
-  private Long id = null;
+	private int niveau;
 
-  @JsonProperty("competenceid")
-  private Long competenceid = null;
+	@ManyToOne
+	private Competence manufacturer;
 
-  @JsonProperty("collaborateurid")
-  private Long collaborateurid = null;
-
-  @JsonProperty("niveau")
-  private Long niveau = null;
-
-  public Niveau id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+	@ManyToOne
+	private Collaborateur modelType;
 
 
-  public Long getId() {
-    return id;
-  }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public int getNiveau() {
+		return niveau;
+	}
 
-  public Niveau competenceid(Long competenceid) {
-    this.competenceid = competenceid;
-    return this;
-  }
+	public void setNiveau(int niveau) {
+		this.niveau = niveau;
+	}
 
-  /**
-   * Get competenceid
-   * @return competenceid
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+	public void setId(Long id) {
+		this.id = id;
+	}
 
+	public Competence getManufacturer() {
+		return manufacturer;
+	}
 
-  public Long getCompetenceid() {
-    return competenceid;
-  }
+	public void setManufacturer(Competence manufacturer) {
+		this.manufacturer = manufacturer;
+	}
 
-  public void setCompetenceid(Long competenceid) {
-    this.competenceid = competenceid;
-  }
+	public Collaborateur getModelType() {
+		return modelType;
+	}
 
-  public Niveau collaborateurid(Long collaborateurid) {
-    this.collaborateurid = collaborateurid;
-    return this;
-  }
+	public void setModelType(Collaborateur modelType) {
+		this.modelType = modelType;
+	}
 
-  /**
-   * Get collaborateurid
-   * @return collaborateurid
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-
-  public Long getCollaborateurid() {
-    return collaborateurid;
-  }
-
-  public void setCollaborateurid(Long collaborateurid) {
-    this.collaborateurid = collaborateurid;
-  }
-
-  public Niveau niveau(Long niveau) {
-    this.niveau = niveau;
-    return this;
-  }
-
-  /**
-   * Get niveau
-   * @return niveau
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-
-  public Long getNiveau() {
-    return niveau;
-  }
-
-  public void setNiveau(Long niveau) {
-    this.niveau = niveau;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Niveau niveau = (Niveau) o;
-    return Objects.equals(this.id, niveau.id) &&
-        Objects.equals(this.competenceid, niveau.competenceid) &&
-        Objects.equals(this.collaborateurid, niveau.collaborateurid) &&
-        Objects.equals(this.niveau, niveau.niveau);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, competenceid, collaborateurid, niveau);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Niveau {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    competenceid: ").append(toIndentedString(competenceid)).append("\n");
-    sb.append("    collaborateurid: ").append(toIndentedString(collaborateurid)).append("\n");
-    sb.append("    niveau: ").append(toIndentedString(niveau)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public Long getId() {
+		return id;
+	}
 }
-

@@ -1,27 +1,21 @@
-package io.swagger.model;
+package io.swagger.modelDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-public class Categorie {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+public class CategorieDTO {
+
+	@JsonProperty
 	private Long id;
+	@JsonProperty
 	private String idCategorieParent;
+	@JsonProperty
 	private String nomCategorie;
 
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="CATEGORIE_ID")
-	private List<Competence> competences = new ArrayList<Competence>();
+
+	private List<CompetenceDTO> competences = new ArrayList<CompetenceDTO>();
 
 
 	public String getIdCategorieParent() {
@@ -54,12 +48,12 @@ public class Categorie {
 	}
 
 
-	public List<Competence> getCompetences() {
+	public List<CompetenceDTO> getCompetences() {
 		return competences;
 	}
 
 
-	public void setCompetences(List<Competence> competences) {
+	public void setCompetences(List<CompetenceDTO> competences) {
 		this.competences = competences;
 	}
 
