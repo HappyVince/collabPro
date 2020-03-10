@@ -12,24 +12,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Competence {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
 	private String nomCompetence;
 
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="COMPETENCE_ID")
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "COMPETENCE_ID")
+	@JsonManagedReference
 	private List<Niveau> niveaux = new ArrayList<Niveau>();
 
 	@ManyToOne
+	@JsonBackReference
 	private Categorie categorieParent;
-
-
-
-
 
 	public Categorie getCategorieParent() {
 		return categorieParent;
@@ -39,7 +40,7 @@ public class Competence {
 		this.categorieParent = categorieParent;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -59,9 +60,8 @@ public class Competence {
 		this.niveaux = niveaux;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 }

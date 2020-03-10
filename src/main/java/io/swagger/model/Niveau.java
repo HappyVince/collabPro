@@ -6,17 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Niveau {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 
 	private int niveau;
 
+    @JsonBackReference
 	@ManyToOne
 	private Competence competence;
 
+    @JsonBackReference
 	@ManyToOne
 	private Collaborateur collaborateur;
 
@@ -30,7 +34,7 @@ public class Niveau {
 		this.niveau = niveau;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -50,7 +54,7 @@ public class Niveau {
 		this.collaborateur = collaborateur;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 }

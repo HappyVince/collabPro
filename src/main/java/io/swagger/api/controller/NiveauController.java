@@ -9,38 +9,54 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.xebia.extras.selma.Selma;
+import io.swagger.api.mapper.NiveauMapper;
+import io.swagger.api.repository.CompetenceRepository;
 import io.swagger.api.repository.NiveauRepository;
+import io.swagger.model.Competence;
 import io.swagger.model.Niveau;
+import io.swagger.modelDTO.NiveauDTO;
 
 @RestController
 public class NiveauController {
 
+	NiveauMapper mapper = Selma.builder(NiveauMapper.class).build();
+
 	@Autowired
-	NiveauRepository iNiveau;
+	NiveauRepository niveauRepository;
+
+	@Autowired
+	CompetenceRepository competenceRepository;
 
 	@PostMapping("/niveau")
-	Niveau create(@RequestBody Niveau niveau) {
-		return iNiveau.save(niveau);
+	Niveau create(@RequestBody NiveauDTO niveauDTO) {
+		Niveau niveau = mapper.asNiveau(niveauDTO);
+		Competence competence = competenceRepository.findOne(niveauDTO.getCompetence().getId());
+		if ( competence != null) {
+
+		}
+		return niveauRepository.save(niveau);
 	}
 
 	@GetMapping("/niveau")
-	Iterable<Niveau> read(@RequestBody Niveau niveau){
-		return iNiveau.findAll();
+	Iterable<Niveau> read(@RequestBody NiveauDTO niveauDTO){
+		return niveauRepository.findAll();
 	}
 
 	@GetMapping("/niveau/{id}")
 	Niveau findById(@PathVariable Integer id) {
-		return iNiveau.findOne(id);
+		return niveauRepository.findOne(id);
 	}
 
 	@PutMapping("/niveau")
-	Niveau update(@RequestBody Niveau niveau){
-		return iNiveau.save(niveau);
+	Niveau update(@RequestBody NiveauDTO niveauDTO){
+		Niveau niveau = mapper.asNiveau(niveauDTO);
+		return niveauRepository.save(niveau);
 	}
 
 	@DeleteMapping("/niveau/{id}")
 	void delete(@PathVariable Integer id) {
-		iNiveau.delete(id);
+		niveauRepository.delete(id);
 	}
 
 }

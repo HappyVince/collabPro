@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CategorieDTO {
 
 	@JsonProperty
-	private Long id;
+	private Integer id;
 	@JsonProperty
 	private String idCategorieParent;
 	@JsonProperty
@@ -28,14 +28,6 @@ public class CategorieDTO {
 	}
 
 
-	public String getIdCategorie() {
-		return idCategorieParent;
-	}
-
-
-	public void setIdCategorie(String idCategorie) {
-		this.idCategorieParent = idCategorie;
-	}
 
 
 	public String getNomCategorie() {
@@ -58,12 +50,12 @@ public class CategorieDTO {
 	}
 
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 

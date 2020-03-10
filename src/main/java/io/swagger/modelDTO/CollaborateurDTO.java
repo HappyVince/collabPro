@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CollaborateurDTO {
 
 	@JsonProperty
-	private Long id;
+	private Integer id;
 	@JsonProperty
 	private String prenom;
 	@JsonProperty
@@ -42,11 +42,11 @@ public class CollaborateurDTO {
 		this.nom = nom;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 }

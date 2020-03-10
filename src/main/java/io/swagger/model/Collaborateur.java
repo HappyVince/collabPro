@@ -11,16 +11,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Collaborateur {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	private String prenom;
 	private String nom;
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="COLLABORATEUR_ID")
+    @JsonManagedReference
 	private List<Niveau> niveaux = new ArrayList<Niveau>();
 
 
@@ -48,11 +51,11 @@ public class Collaborateur {
 		this.nom = nom;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 }

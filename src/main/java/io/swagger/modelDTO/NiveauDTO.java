@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class NiveauDTO {
 
 	@JsonProperty
-	private Long id;
+	private Integer id;
 
 	@JsonProperty
 	private int niveau;
@@ -38,11 +38,11 @@ public class NiveauDTO {
 		this.niveau = niveau;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 }

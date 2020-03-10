@@ -12,11 +12,11 @@ public interface CollaborateurMapper {
 	// This will update the given order
 	Collaborateur asCollaborateur(CollaborateurDTO in, Collaborateur out);
 
-	// Returns a new instance of CollaborateurDTO mapped from Collaborateur source
+	// Returns a new instance of CollaborateurDTO mapped from Collaborator source
 	@Maps(withIgnoreMissing = IgnoreMissing.DESTINATION)
 	CollaborateurDTO asCollaborateurDTO(Collaborateur source);
 
-	// Returns a new instance of Collaborateur mapped from CollaborateurDTO source
+	// Returns a new instance of Collaborator mapped from CollaborateurDTO source
 	@Maps(withIgnoreMissing = IgnoreMissing.SOURCE)
 	Collaborateur asCollaborateur(CollaborateurDTO source);
 
